@@ -1,4 +1,4 @@
-Sign up:
+<h3>Sign up:</h3>
 ![image](https://github.com/ahmadkhalil-1/Online-Editing-Application/assets/131601921/77584855-215e-4a2e-a4ab-4cb8992baec9)
 Sign in:
 ![image](https://github.com/ahmadkhalil-1/Online-Editing-Application/assets/131601921/948f7b18-6948-4b35-99c5-c32580b3cebf)
