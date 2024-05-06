@@ -1,0 +1,41 @@
+.Footer {
+    background-color: white;
+  }
+  #copy {
+    margin-bottom: 1rem;
+  }
+  #foot-end {
+    margin-bottom: 1rem;
+  }
+  /* Media Query */
+  
+  @media (max-width: 576px) {
+    .Footer {
+      background-color: rgb(255, 255, 255);
+    }
+    .Company {
+      text-align: start;
+    }
+    .About-Company {
+      text-align: left;
+      color: rgb(255, 255, 255);
+    }
+    .Community {
+      text-align: left;
+      color: rgb(255, 255, 255);
+    }
+    .Social {
+      text-align: start;
+      color: rgb(255, 255, 255);
+    }
+    .CopyRight {
+      display: flex;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    .Foot-end {
+      display: flex;
+      justify-content: space-between;
+      margin-left: -2.5rem;
+    }
+  }

@@ -1,0 +1,92 @@
+import React, { useState } from "react";
+
+const Tform = (props) => {
+  const [text, setText] = useState("");
+  const [history, setHistory] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(-1);
+
+  const updateHistory = (newText) => {
+    const newHistory = [...history.slice(0, currentIndex + 1), newText];
+    setHistory(newHistory);
+    setCurrentIndex(newHistory.length - 1);
+  };
+
+  const handleOnClickUndo = () => {
+    if (currentIndex > 0) {
+      const newIndex = currentIndex - 1;
+      setText(history[newIndex]);
+      setCurrentIndex(newIndex);
+    }
+  };
+
+  const handleOnClickRedo = () => {
+    if (currentIndex < history.length - 1) {
+      const newIndex = currentIndex + 1;
+      setText(history[newIndex]);
+      setCurrentIndex(newIndex);
+    }
+  };
+
+  const handleOnChange = (event) => {
+    const newText = event.target.value;
+    setText(newText);
+    updateHistory(newText);
+  };
+
+  return (
+    <div>
+      <h1>{props.heading}</h1>
+      <div className="mb-3 mt-3">
+        <textarea
+          className="form-control"
+          value={text}
+          onChange={handleOnChange}
+          id="exampleFormControlTextarea1"
+          rows="10"
+        ></textarea>
+      </div>
+<div
+        className="btn btn-primary"
+        onClick={handleOnClickUpper}
+      >
+        UpperCase
+      </div>
+      <div
+        className="btn btn-primary mx-2"
+        onClick={handleOnClickLower}
+      >
+        LowerCase
+      </div>
+      <div className="btn btn-primary" onClick={handleOnClickClear}>
+        Clear
+      </div>
+
+      <div>
+        <button className="btn btn-primary mx-2" onClick={handleOnClickUndo}>
+          Undo
+        </button>
+        <button className="btn btn-primary" onClick={handleOnClickRedo}>
+          Redo
+        </button>
+      </div>
+
+      <div className="my-3">
+        <h2>Summary:</h2>
+        <p className="my-3">
+          <b>{text.split(" ").filter((element) => element !== "").length} </b>
+          Words <b>{text.length}</b> Characters
+        </p>
+        <p className="my-3">
+          <b>{0.46 * text.split(" ").length}</b> Seconds to read{" "}
+          <b>{0.08 * text.split(" ").length}</b> Minutes to read
+        </p>
+        <p>
+          <h2>Preview:</h2>
+          {text}
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Tform;
